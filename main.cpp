@@ -7,8 +7,6 @@
 #include <string>
 #include <iomanip>
 
-// chcp 1250
-
 std::vector<char> readFile(const std::string& filename) {
     std::ifstream file(filename, std::ios::ate | std::ios::binary);
 
@@ -41,7 +39,9 @@ void showDetails(const Animal& animal) {
 }
 
 int main() {
-	std::vector<char> art = readFile("C:\\VisualStudio\\SIMDA\\ascii.txt");
+    system("chcp 1250");
+    system("cls");
+	std::vector<char> art = readFile("D:\\SIMDA\\ascii.txt");
 
     for (const char& c : art) {
 		std::cout << c;
@@ -49,13 +49,30 @@ int main() {
 
 	std::cout << "\n\n";
 
-    std::vector<Animal> swines{ 5 };
+    std::vector<double> averages;
+    double averageTotal = 0;
+    int qtd = 0;
 
-    for (Animal& swine : swines) {
-        showDetails(swine);
-		swine.detectAnomaly();
-        std::cout << "\n";
+    for (int i = 0; i < 50; i++) {
+        double average = 0;
+        std::vector<Animal> swines{ 20 };
+        for (Animal& swine : swines) {
+            showDetails(swine);
+            swine.detectAnomaly();
+            average += swine.m_score;
+            std::cout << "\n";
+            qtd++;
+        }
+        double batchAverage = std::round((average / swines.size()) * 100) / 100;
+		averageTotal += batchAverage;
+        averages.push_back(batchAverage);
     }
+
+    std::cout << "Score médio dos suínos: " << averageTotal / 50 << std::endl;
+    for (size_t i = 0; i < averages.size(); i++) {
+        std::cout << "Score médio do lote " << i + 1 << ": " << averages[i] << std::endl;
+	}
+    std::cout << "Qtd suínos: " << qtd << std::endl;
 
 	return 0;
 }
