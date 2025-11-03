@@ -3,9 +3,29 @@
 #include <iostream>
 #include <random>
 #include <vector>
+#include <fstream>
+#include <string>
 #include <iomanip>
 
 // chcp 1250
+
+std::vector<char> readFile(const std::string& filename) {
+    std::ifstream file(filename, std::ios::ate | std::ios::binary);
+
+    if (!file.is_open()) {
+        throw std::runtime_error("FAILED TO OPEN FILE: " + filename);
+    }
+
+    size_t fileSize = static_cast<size_t>(file.tellg());
+    std::vector<char> content(fileSize);
+
+    file.seekg(0);
+    file.read(content.data(), fileSize);
+
+    file.close();
+
+    return content;
+}
 
 void showDetails(const Animal& animal) {
     //std::cout << "--------------------------------------------------------" << std::endl;
@@ -21,6 +41,14 @@ void showDetails(const Animal& animal) {
 }
 
 int main() {
+	std::vector<char> art = readFile("C:\\VisualStudio\\SIMDA\\ascii.txt");
+
+    for (const char& c : art) {
+		std::cout << c;
+    }
+
+	std::cout << "\n\n";
+
     std::vector<Animal> swines{ 5 };
 
     for (Animal& swine : swines) {
