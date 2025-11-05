@@ -2,6 +2,7 @@
 
 #include "Util.hpp"
 #include "Animal.hpp"
+#include <queue>
 
 class AI {
 public:
@@ -10,7 +11,7 @@ public:
 
 	const uint16_t m_tempWeight = 10;
 	const uint16_t m_activityWeight = 7;
-	const double m_socialDistWeight = 5;
+	const uint16_t m_socialDistWeight = 5;
 
 	double m_tempAverage = 0;
 	double m_activityAverage = 0;
@@ -20,11 +21,12 @@ public:
 	double m_activityDeviation = 0;
 	double m_socialDistDeviation = 0;
 
-	double m_highScore = 0;
-	double m_mediumScore = 0;
-	double m_lowScore = 0;
+	double m_highScore = 80;
+	double m_mediumScore = 50;
+	double m_lowScore = 25;
 
 	void trainModel(const std::vector<Animal>& animals);
-
-	void detectRisk(const std::vector<Animal>& animals);
+	void setSocialDistances(std::vector<Animal>& animals);
+	double detectScore(const Animal& animals);
+	Risk detectRisk(const Animal& animal);
 };

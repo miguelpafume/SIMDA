@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="AI.hpp" />
     <ClInclude Include="Animal.hpp" />
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="Util.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

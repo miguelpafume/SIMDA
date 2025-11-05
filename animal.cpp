@@ -1,82 +1,7 @@
-#include "animal.hpp"
+#include "Animal.hpp"
 
 #include <cmath>
 #include <iostream>
-
-/*
-CALC FOR STANDARD DEVIATION
-sigma = sqrt((x1 - average)^2 + (x2 - average)^2 +... / N-1)
-
-CALC FOR DISTANCE OF TWO POINTS
-distance = sqrt((lon1 - lon2)^2 + (lat1 - lat2)^2)
-*/
-
-double AVG_TEMP = 38.9;
-constexpr uint16_t TEMP_WEIGHT = 10;
-double TEMP_DEVIATION = std::sqrt((std::pow((38.6 - AVG_TEMP), 2) + std::pow((38.9 - AVG_TEMP), 2) + std::pow((39.2 - AVG_TEMP), 2)) / (3 - 1));
-
-uint16_t AVG_ACTIVITY = 80;
-constexpr uint16_t ACTIVITY_WEIGHT = 7;
-double ACT_DEVIATION = std::sqrt((std::pow(75 - AVG_ACTIVITY, 2) + std::pow(80 - AVG_ACTIVITY, 2) + std::pow(85 - AVG_ACTIVITY, 2)) / (3 - 1));
-
-double AVG_SOCIAL_DIST = 1;
-constexpr double SOCIAL_DIST_WEIGHT = 5;
-double SOCIAL_DIST_DEVIATION = std::sqrt((std::pow(0.56 - AVG_ACTIVITY, 2) + std::pow(1 - AVG_ACTIVITY, 2) + std::pow(1.41 - AVG_ACTIVITY, 2)) / (3 - 1));
-
-constexpr double MIN_DIST = 0.3;
-constexpr double ANIMAL_AREA_X = 10;
-constexpr double ANIMAL_AREA_Y = 10;
-
-std::pair<double, double> generatePosition(const std::vector<Animal>& animals) {
-	double x = randomNumber(0.0, ANIMAL_AREA_X);
-	double y = 0.0;
-}
-
-template <typename T>
-int16_t calcDeviationScore(T value, T average, double sigma, uint16_t weight) {
-	T deviation = std::abs(value - average);
-
-	if (sigma == 0.0) return 0; // Prevent division by zero
-	
-	// If within standard deviation, return negative weight (healthy)
-	if ((double)deviation <= sigma) {
-		return static_cast<int16_t>(-weight);
-	}
-
-	return static_cast<int16_t>(deviation / sigma * weight);
-}
-
-int randomNumber(int min, int max) {
-	std::random_device rd;
-	std::mt19937 gen(rd());
-
-	std::uniform_int_distribution<int> randomNum(min, max);
-	return randomNum(gen);
-}
-
-double randomNumber(double min, double max) {
-	std::random_device rd;
-	std::mt19937 gen(rd());
-
-	std::uniform_real_distribution<double> randomNum(min, max);
-	return randomNum(gen);
-}
-
-int randomNumberInterval(int minA, int maxA, int minB, int maxB) {
-	if (randomNumber(0, 1) == 0) {
-		return randomNumber(minA, maxA);
-	} else {
-		return randomNumber(minB, maxB);
-	}
-}
-
-double randomNumberInterval(double minA, double maxA, double minB, double maxB) {
-	if (randomNumber(0, 1) == 0) {
-		return randomNumber(minA, maxA);
-	} else {
-		return randomNumber(minB, maxB);
-	}
-}
 
 uint16_t Animal::s_nextId = 1;
 
@@ -106,51 +31,45 @@ Animal::Animal(Risk risk) : m_risk{ risk } {
 
 	m_location = { std::round(randomNumber(0.0, 10.0) * 100) / 100, std::round(randomNumber(4.0, 6.0) * 100) / 100 };
 
-
 	m_id = s_nextId;
 	s_nextId++;
 	m_age = static_cast<uint16_t>(randomNumber(15, 200));
 }
 
-void Animal::detectAnomaly() {
-	int16_t score = 0;
-	double avgTemp = AVG_TEMP;
-	uint16_t avgActivity = AVG_ACTIVITY;
-	double avgSocialDist = AVG_SOCIAL_DIST;
+void Animal::generatePosition(double minX, double maxX, double minY, double maxY) {
+	std::pair<double, double> newLocation;
 
-	// Change averages based on age
-	if (m_age < 60) {
-		avgTemp += 0.2;
-		avgActivity += 5;
-		avgSocialDist -= 0.2;
-	} else if (m_age > 180) {
-		avgTemp -= 0.2;
-		avgActivity -= 10;
-		avgSocialDist += 0.2;
+	double x = randomNumber(minX, maxX);
+	double y = randomNumber(minY, maxY);
+
+	newLocation = { std::round(x * 100) / 100.0, std::round(y * 100) / 100.0 };
+
+	m_location = newLocation;
+	return;
+}
+
+void Animal::generateUniquePosition(double minX, double maxX, double minY, double maxY, const std::vector<Animal>& animals, const double minDistance) {
+	std::pair<double, double> newLocation;
+
+	while (true) {
+		double x = randomNumber(minX, maxX);
+		double y = randomNumber(minY, maxY);
+		newLocation = { std::round(x * 100) / 100.0, std::round(y * 100) / 100.0 };
+
+		bool collision = false;
+
+		for (const auto& animal : animals) {
+			double dist = calcDistance(newLocation, animal.m_location);
+
+			if (dist < minDistance) {
+				collision = true;
+				break;
+			}
+		}
+
+		if (!collision) {
+			m_location = newLocation;
+			break;
+		}
 	}
-
-	// Change averages based on activity
-	if (m_activity > 90) {
-		avgTemp += 0.1;
-		avgSocialDist -= 0.2;
-	} else if (m_activity < 70) {
-		avgTemp -= 0.1;
-		avgSocialDist += 0.2;
-	}
-
-	// Temperature anomaly detection
-	int16_t temperatureScore = calcDeviationScore(m_temperature, AVG_TEMP, TEMP_DEVIATION, TEMP_WEIGHT);
-	score += temperatureScore;
-	std::cout << "Pontos por Desvio de Temperatura: " << temperatureScore << std::endl; // DEBUG
-	std::cout << TEMP_DEVIATION << std::endl; // DEBUG
-
-	// Activity anomaly detection
-	int16_t activityScore = calcDeviationScore(m_activity, AVG_ACTIVITY, ACT_DEVIATION, ACTIVITY_WEIGHT);
-	score += activityScore;
-	std::cout << "Pontos por Desvio de Atividade: " << activityScore << std::endl; // DEBUG
-	std::cout << ACT_DEVIATION << std::endl; // DEBUG
-
-	std::cout << "Pontuação Total de Anomalia: " << score << std::endl; // DEBUG
-
-	m_score = score;
 }

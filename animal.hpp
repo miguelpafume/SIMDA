@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Util.hpp"
+
 #include <string>
 #include <random>
 #include <utility>
@@ -30,9 +32,13 @@ public:
 	double m_temperature					= 0;			// Body temperature (celsius)
 	std::pair<double, double> m_location	= { 0.0, 0.0 };	// Mapping (latitude, longitude)
 	double m_socialDistance					= 0;			// Average distance from other animals (meters)
-	Risk m_risk								= NORMAL;		// Risk level
+	uint16_t heart_rate						= 0;			// BPM (beats per minute)
 
 	int16_t m_score							= 0;			// Anomaly score
+	Risk m_risk								= NORMAL;		// Risk level
 
-	void detectAnomaly();
+	void resetIdCounter() { s_nextId = 1; };
+
+	void generatePosition(double minX, double maxX, double minY, double maxY); // Generates a random position without collision
+	void generateUniquePosition(double minX, double maxX, double minY, double maxY, const std::vector<Animal>& animals, const double minDistance);
 };
