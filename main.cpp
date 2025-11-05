@@ -1,5 +1,6 @@
 #include "Util.hpp"
 #include "animal.hpp"
+#include "AI.hpp"
 
 #include <iostream>
 #include <random>
@@ -34,9 +35,9 @@ void showDetails(const Animal& animal) {
     std::cout << "--------------------------------------------------------" << std::endl;
     std::cout << std::fixed << std::setprecision(5); // 2 decimals precision
     std::cout << "Dados Coletados:" << std::endl;
-    //std::cout << "- Idade: " << animal.m_age << " dias" << std::endl;
-    //std::cout << "- Temperatura Corporal: " << animal.m_temperature << " °C" << std::endl;
-    //std::cout << "- Nível de Atividade: " << animal.m_activity << " %" << std::endl;
+    std::cout << "- Idade: " << animal.m_age << " dias" << std::endl;
+    std::cout << "- Temperatura Corporal: " << animal.m_temperature << " °C" << std::endl;
+    std::cout << "- Nível de Atividade: " << animal.m_activity << " %" << std::endl;
     std::cout << "- Posição: " << animal.m_location.first << " X | " << animal.m_location.second << " Y" << std::endl;
     std::cout << "- Distanciamento Social: " << animal.m_socialDistance << " m" << std::endl;
     std::cout << "--------------------------------------------------------" << std::endl;
@@ -54,26 +55,41 @@ int main() {
 
 	std::cout << "\n\n";
 
-    std::vector<double> averages;
-    double averageTotal = 0;
-    double qtd = 0;
+    AI ai;
 
-    for (int i = 0; i < 20; i++) {
+    std::vector<Animal> swinesHealthy(NORMAL);
+
+    for (int i = 0; i < 100; i++) {
+        Animal swine(NORMAL);
+        swine.m_location = generatePosition(swinesHealthy);
+        swinesHealthy.push_back(swine);
+    }
+
+    ai.trainModel(swinesHealthy)
+
+    for (int i = 0; i < 80; i++) {
+        Animal swine(NORMAL);
+        swine.m_location = generatePosition(swines);
+        swines.push_back(swine);
+    }
+
+
+
+        calcSocialDistance(swines);
+
         double average = 0;
 
-        std::vector<Animal> swines{ 80 };
-		calcSocialDistance(swines);
-        
         for (Animal& swine : swines) {
             showDetails(swine);
             swine.detectAnomaly();
             average += swine.m_score;
+			scores.push_back(swine.m_score);
             std::cout << "\n";
             qtd += swine.m_socialDistance / swines.size();
         }
 
         double batchAverage = std::round((average / swines.size()) * 100) / 100;
-		averageTotal += batchAverage;
+        averageTotal += batchAverage;
         averages.push_back(batchAverage);
     }
 
@@ -82,7 +98,12 @@ int main() {
         //std::cout << "Score médio do lote " << i + 1 << ": " << averages[i] << std::endl;
         std::cout << averages[i] << std::endl;
 	}
-    std::cout << "Distanciamentos: " << qtd / 20 << std::endl;
+
+    std::cout << "Distanciamentos: " << qtd << std::endl;
+
+    for (size_t i = 0; i < scores.size(); i++) {
+        std::cout << scores[i] << std::endl;
+    }
 
 	return 0;
 }
