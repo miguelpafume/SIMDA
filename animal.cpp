@@ -1,8 +1,5 @@
 #include "Animal.hpp"
 
-#include <cmath>
-#include <iostream>
-
 uint16_t Animal::s_nextId = 1;
 
 Animal::Animal(Risk risk) : m_risk{ risk } {
@@ -63,6 +60,7 @@ void Animal::generateUniquePosition(double minX, double maxX, double minY, doubl
 
 		bool collision = false;
 
+		// Collision detection
 		for (const auto& animal : animals) {
 			double dist = calcDistance(newLocation, animal.m_location);
 

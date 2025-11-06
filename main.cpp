@@ -14,6 +14,7 @@ using json = nlohmann::json;
 const char* RISK_STRINGS[] = { "NORMAL", "BAIXO", "MEDIO", "ALTO", "UNKNOWN" };
 constexpr double MIN_DIST = 0.3;
 
+// Display animal details to console
 void showDetails(const Animal& animal) {
     std::cout << "--------------------------------------------------------" << std::endl;
     std::cout << "Suíno ID: " << animal.getId() << " | RISCO: " << RISK_STRINGS[animal.m_risk] << std::endl;
@@ -89,10 +90,12 @@ int main() {
     ai.setSocialDistances(swinesHealthy);
     ai.trainModel(swinesHealthy);
 
+	// DON'T DO THIS
     Animal* tempSwine = new Animal();
     tempSwine->resetIdCounter();
     delete tempSwine;
 
+	// Creates 80 random swines for analysis
     std::vector<Animal> swinesRandom;
 	
     for (int i = 0; i < 80; i++) {
@@ -103,6 +106,7 @@ int main() {
 
     ai.setSocialDistances(swinesRandom);
     
+	// Analyze swines and gives them a score & risk level
 	for (Animal& swine : swinesRandom) {
         swine.m_score = ai.detectScore(swine);
         swine.m_risk = ai.detectRisk(swine);

@@ -1,5 +1,6 @@
 #include "AI.hpp"
 
+// "Train" the AI model by calculating averages and deviations from an healthy batch of animals
 void AI::trainModel(const std::vector<Animal>& animals) {
 	std::vector<double> tempTotal;
 	std::vector<double> activityTotal;
@@ -24,6 +25,7 @@ void AI::trainModel(const std::vector<Animal>& animals) {
 	m_heartRateDeviation = deviationFromVector(heartRateTotal, m_heartRateAverage);
 }
 
+// Calculate and set social distances for each animal in the batch using the 5 closest animals to it
 void AI::setSocialDistances(std::vector<Animal>& animals) {
 	for (Animal& animal : animals) {
 		double socialDistance = 0.0;
