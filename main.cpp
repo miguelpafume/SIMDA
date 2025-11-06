@@ -96,7 +96,7 @@ int main() {
     std::vector<Animal> swinesRandom;
 	
     for (int i = 0; i < 80; i++) {
-        Animal swine(HIGH);
+        Animal swine(RANDOM);
         swine.generateUniquePosition(0.0, 10.0, 0.0, 10.0, swinesRandom, MIN_DIST);
         swinesRandom.push_back(swine);
     }
