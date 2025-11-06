@@ -23,6 +23,7 @@ void showDetails(const Animal& animal) {
     std::cout << "- Idade: " << animal.m_age << " dias" << std::endl;
     std::cout << "- Temperatura Corporal: " << animal.m_temperature << " °C" << std::endl;
     std::cout << "- Nível de Atividade: " << animal.m_activity << " %" << std::endl;
+    std::cout << "- Batimento Cardíaco: " << animal.m_heartRate << " BMP" << std::endl;
     std::cout << "- Posição: " << animal.m_location.first << " X | " << animal.m_location.second << " Y" << std::endl;
     std::cout << "- Distanciamento Social: " << animal.m_socialDistance << " m" << std::endl;
     std::cout << "--------------------------------------------------------" << std::endl;
@@ -40,6 +41,7 @@ void exportJson(const std::vector<Animal>& animals, const std::string filename) 
 
         animalJson["age"] = animal.m_age;
         animalJson["temperature"] = animal.m_temperature;
+        animalJson["bpm"] = animal.m_heartRate;
         animalJson["activity"] = animal.m_activity;
         animalJson["social_distance"] = animal.m_socialDistance;
 
@@ -52,12 +54,12 @@ void exportJson(const std::vector<Animal>& animals, const std::string filename) 
         if (file.is_open()) {
             file << std::setw(4) << jsonArray << std::endl;
             file.close();
-            std::cout << "\nDados exportados para " << filename << std::endl;
+            std::cout << "Dados exportados para " << filename << std::endl;
         } else {
-            std::cerr << "\nERRO: Não foi possível abrir o arquivo para escrita: " << filename << std::endl;
+            std::cerr << "ERRO: Não foi possível abrir o arquivo para escrita: " << filename << std::endl;
         }
     } catch (const std::exception& e) {
-        std::cerr << "\nERRO ao escrever o arquivo JSON: " << e.what() << std::endl;
+        std::cerr << "ERRO ao escrever o arquivo JSON: " << e.what() << std::endl;
     }
 }
 
@@ -94,7 +96,7 @@ int main() {
     std::vector<Animal> swinesRandom;
 	
     for (int i = 0; i < 80; i++) {
-        Animal swine(RANDOM);
+        Animal swine(HIGH);
         swine.generateUniquePosition(0.0, 10.0, 0.0, 10.0, swinesRandom, MIN_DIST);
         swinesRandom.push_back(swine);
     }
@@ -105,10 +107,6 @@ int main() {
         swine.m_score = ai.detectScore(swine);
         swine.m_risk = ai.detectRisk(swine);
 	}
-
-	std::cout << ai.m_socialDistAverage << " | " << ai.m_socialDistDeviation << std::endl;
-	std::cout << ai.m_activityAverage << " | " << ai.m_activityDeviation << std::endl;
-	std::cout << ai.m_tempAverage << " | " << ai.m_tempDeviation << std::endl;
 
     for (Animal& swine : swinesRandom) {
         showDetails(swine);

@@ -32,7 +32,7 @@ public:
 	double m_temperature					= 0;			// Body temperature (celsius)
 	std::pair<double, double> m_location	= { 0.0, 0.0 };	// Mapping (latitude, longitude)
 	double m_socialDistance					= 0;			// Average distance from other animals (meters)
-	uint16_t heart_rate						= 0;			// BPM (beats per minute)
+	uint16_t m_heartRate					= 0;			// BPM (beats per minute)
 
 	int16_t m_score							= 0;			// Anomaly score
 	Risk m_risk								= NORMAL;		// Risk level

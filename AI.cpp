@@ -4,20 +4,24 @@ void AI::trainModel(const std::vector<Animal>& animals) {
 	std::vector<double> tempTotal;
 	std::vector<double> activityTotal;
 	std::vector<double> socialDistTotal;
+	std::vector<double> heartRateTotal;
 
 	for (const Animal& animal : animals) {
 		tempTotal.push_back(animal.m_temperature);
 		activityTotal.push_back(animal.m_activity);
 		socialDistTotal.push_back(animal.m_socialDistance);
+		heartRateTotal.push_back(animal.m_heartRate);
 	}
 
 	m_tempAverage = averageFromVector(tempTotal);
 	m_activityAverage = averageFromVector(activityTotal);
 	m_socialDistAverage = averageFromVector(socialDistTotal);
+	m_heartRateAverage = averageFromVector(heartRateTotal);
 
 	m_tempDeviation = deviationFromVector(tempTotal, m_tempAverage);
 	m_activityDeviation = deviationFromVector(activityTotal, m_activityAverage);
 	m_socialDistDeviation = deviationFromVector(socialDistTotal, m_socialDistAverage);
+	m_heartRateDeviation = deviationFromVector(heartRateTotal, m_heartRateAverage);
 }
 
 void AI::setSocialDistances(std::vector<Animal>& animals) {
@@ -50,37 +54,47 @@ double AI::detectScore(const Animal& animal) {
 	double tempAverage = m_tempAverage;
 	double activityAverage = m_activityAverage;
 	double socialDistAverage = m_socialDistAverage;
+	double heartRateAverage = m_heartRateAverage;
 
 	// Change averages based on age
 	if (animal.m_age < 60) {
 		tempAverage += 0.3;
 		activityAverage += 5;
 		socialDistAverage -= 0.2;
+		heartRateAverage += 15;
 	} else if (animal.m_age > 180) {
 		tempAverage -= 0.2;
 		activityAverage -= 10;
 		socialDistAverage += 0.2;
+		heartRateAverage -= 10;
 	}
 
 	// Change averages based on activity
 	if (animal.m_activity > 90) {
 		tempAverage += 0.5;
 		socialDistAverage -= 0.2;
+		heartRateAverage += 5;
 	} else if (animal.m_activity < 70) {
 		tempAverage -= 0.5;
 		socialDistAverage += 0.2;
+		heartRateAverage -= 5;
 	}
 
 	// Temperature anomaly detection
-	int16_t temperatureScore = calcDeviationScore(animal.m_temperature, m_tempAverage, m_tempDeviation, m_tempWeight);
+	int16_t temperatureScore = calcDeviationScore(animal.m_temperature, tempAverage, m_tempDeviation, m_tempWeight);
 	score += temperatureScore;
 
 	// Activity anomaly detection
-	int16_t activityScore = calcDeviationScore(animal.m_activity, m_activityAverage, m_activityDeviation, m_activityWeight);
+	int16_t activityScore = calcDeviationScore(animal.m_activity, activityAverage, m_activityDeviation, m_activityWeight);
 	score += activityScore;
 
-	int16_t socialDistanceScore = calcDeviationScore(animal.m_socialDistance, m_socialDistAverage, m_socialDistDeviation, m_socialDistWeight, false);
+	// Social distance anomaly detection
+	int16_t socialDistanceScore = calcDeviationScore(animal.m_socialDistance, socialDistAverage, m_socialDistDeviation, m_socialDistWeight, false);
 	score += socialDistanceScore;
+
+	// Heart rate anomaly detection
+	int16_t heartRateScore = calcDeviationScore(animal.m_heartRate, heartRateAverage, m_heartRateDeviation, m_heartRateWeight);
+	score += heartRateScore;
 
 	return score;
 }

@@ -10,22 +10,27 @@ Animal::Animal(Risk risk) : m_risk{ risk } {
 	case NORMAL:
 		m_activity = static_cast<uint16_t>(randomNumber(70, 90));
 		m_temperature = std::round(randomNumber(38.6, 39.2) * 10) / 10;
+		m_heartRate = static_cast<uint16_t>(randomNumber(75, 95));
 		break;
 	case LOW:
 		m_activity = static_cast<uint16_t>(randomNumberInterval(70, 75, 85, 90));
 		m_temperature = std::round(randomNumberInterval(38.2, 38.6, 39.2, 39.6) * 10) / 10;
+		m_heartRate = static_cast<uint16_t>(randomNumberInterval(65, 70, 95, 100));
 		break;
 	case MEDIUM:
 		m_activity = static_cast<uint16_t>(randomNumberInterval(65, 70, 90, 95));
 		m_temperature = std::round(randomNumberInterval(37.8, 38.2, 39.6, 40.0) * 10) / 10;
+		m_heartRate = static_cast<uint16_t>(randomNumberInterval(60, 70, 95, 110));
 		break;
 	case HIGH:
 		m_activity = static_cast<uint16_t>(randomNumberInterval(60, 65, 95, 100));
 		m_temperature = std::round(randomNumberInterval(37.2, 37.8, 40.0, 40.4) * 10) / 10;
+		m_heartRate = static_cast<uint16_t>(randomNumberInterval(55, 65, 115, 125));
 		break;
 	case RANDOM:
 		m_activity = static_cast<uint16_t>(randomNumber(60, 100));
 		m_temperature = std::round(randomNumber(37.2, 40.4) * 10) / 10;
+		m_heartRate = static_cast<uint16_t>(randomNumber(55, 150));
 		break;
 	}
 
