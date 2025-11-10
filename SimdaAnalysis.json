@@ -1,722 +1,452 @@
 [
     {
-        "activity": 62,
-        "age": 128,
-        "bpm": 144,
+        "activity": 58,
+        "age": 63,
+        "bpm": 127,
         "id": 1,
         "risk": "ALTO",
-        "social_distance": 1.09,
-        "temperature": 39.9
+        "social_distance": 2.35,
+        "temperature": 39.59999999999999
     },
     {
-        "activity": 84,
-        "age": 199,
-        "bpm": 78,
+        "activity": 100,
+        "age": 108,
+        "bpm": 122,
         "id": 2,
-        "risk": "BAIXO",
-        "social_distance": 1.05,
-        "temperature": 40.1
+        "risk": "MEDIO",
+        "social_distance": 2.01,
+        "temperature": 38.69999999999999
     },
     {
-        "activity": 73,
-        "age": 110,
-        "bpm": 121,
+        "activity": 50,
+        "age": 178,
+        "bpm": 145,
         "id": 3,
-        "risk": "BAIXO",
-        "social_distance": 0.65,
-        "temperature": 38.5
-    },
-    {
-        "activity": 61,
-        "age": 118,
-        "bpm": 146,
-        "id": 4,
         "risk": "ALTO",
-        "social_distance": 1.67,
-        "temperature": 39.1
+        "social_distance": 2.04,
+        "temperature": 40.00000000000001
     },
     {
-        "activity": 81,
-        "age": 68,
-        "bpm": 66,
-        "id": 5,
+        "activity": 96,
+        "age": 105,
+        "bpm": 99,
+        "id": 4,
         "risk": "NORMAL",
-        "social_distance": 0.99,
-        "temperature": 38.4
+        "social_distance": 2.24,
+        "temperature": 38.99999999999998
     },
     {
-        "activity": 60,
-        "age": 162,
-        "bpm": 58,
+        "activity": 76,
+        "age": 184,
+        "bpm": 131,
+        "id": 5,
+        "risk": "ALTO",
+        "social_distance": 2.43,
+        "temperature": 37.60000000000001
+    },
+    {
+        "activity": 53,
+        "age": 98,
+        "bpm": 135,
         "id": 6,
-        "risk": "BAIXO",
-        "social_distance": 1.4,
-        "temperature": 39.3
+        "risk": "MEDIO",
+        "social_distance": 2.56,
+        "temperature": 39.00000000000002
     },
     {
-        "activity": 78,
-        "age": 80,
-        "bpm": 144,
+        "activity": 94,
+        "age": 100,
+        "bpm": 104,
         "id": 7,
         "risk": "NORMAL",
-        "social_distance": 0.63,
-        "temperature": 38.9
-    },
-    {
-        "activity": 78,
-        "age": 74,
-        "bpm": 108,
-        "id": 8,
-        "risk": "BAIXO",
-        "social_distance": 1.19,
-        "temperature": 37.4
-    },
-    {
-        "activity": 79,
-        "age": 15,
-        "bpm": 127,
-        "id": 9,
-        "risk": "NORMAL",
-        "social_distance": 0.68,
-        "temperature": 38.8
-    },
-    {
-        "activity": 73,
-        "age": 120,
-        "bpm": 93,
-        "id": 10,
-        "risk": "BAIXO",
-        "social_distance": 0.94,
-        "temperature": 37.8
-    },
-    {
-        "activity": 60,
-        "age": 181,
-        "bpm": 131,
-        "id": 11,
-        "risk": "ALTO",
-        "social_distance": 1.73,
-        "temperature": 39.8
-    },
-    {
-        "activity": 77,
-        "age": 43,
-        "bpm": 59,
-        "id": 12,
-        "risk": "MEDIO",
-        "social_distance": 0.99,
-        "temperature": 37.7
-    },
-    {
-        "activity": 69,
-        "age": 177,
-        "bpm": 139,
-        "id": 13,
-        "risk": "ALTO",
-        "social_distance": 1.24,
-        "temperature": 40.2
-    },
-    {
-        "activity": 82,
-        "age": 73,
-        "bpm": 105,
-        "id": 14,
-        "risk": "BAIXO",
-        "social_distance": 1.11,
-        "temperature": 37.5
-    },
-    {
-        "activity": 69,
-        "age": 44,
-        "bpm": 104,
-        "id": 15,
-        "risk": "NORMAL",
-        "social_distance": 0.93,
-        "temperature": 38.5
-    },
-    {
-        "activity": 99,
-        "age": 33,
-        "bpm": 60,
-        "id": 16,
-        "risk": "MEDIO",
-        "social_distance": 1.8,
-        "temperature": 38.9
-    },
-    {
-        "activity": 69,
-        "age": 128,
-        "bpm": 123,
-        "id": 17,
-        "risk": "BAIXO",
-        "social_distance": 0.97,
-        "temperature": 38.0
-    },
-    {
-        "activity": 95,
-        "age": 75,
-        "bpm": 113,
-        "id": 18,
-        "risk": "BAIXO",
-        "social_distance": 1.01,
-        "temperature": 38.4
-    },
-    {
-        "activity": 62,
-        "age": 93,
-        "bpm": 94,
-        "id": 19,
-        "risk": "MEDIO",
-        "social_distance": 0.89,
-        "temperature": 39.9
-    },
-    {
-        "activity": 93,
-        "age": 20,
-        "bpm": 105,
-        "id": 20,
-        "risk": "NORMAL",
-        "social_distance": 1.09,
-        "temperature": 40.3
-    },
-    {
-        "activity": 87,
-        "age": 32,
-        "bpm": 97,
-        "id": 21,
-        "risk": "NORMAL",
-        "social_distance": 1.57,
-        "temperature": 39.1
-    },
-    {
-        "activity": 74,
-        "age": 120,
-        "bpm": 104,
-        "id": 22,
-        "risk": "NORMAL",
-        "social_distance": 1.64,
-        "temperature": 38.6
-    },
-    {
-        "activity": 70,
-        "age": 86,
-        "bpm": 124,
-        "id": 23,
-        "risk": "MEDIO",
-        "social_distance": 0.87,
-        "temperature": 37.5
-    },
-    {
-        "activity": 77,
-        "age": 117,
-        "bpm": 64,
-        "id": 24,
-        "risk": "NORMAL",
-        "social_distance": 0.89,
-        "temperature": 38.5
-    },
-    {
-        "activity": 87,
-        "age": 71,
-        "bpm": 61,
-        "id": 25,
-        "risk": "MEDIO",
-        "social_distance": 1.28,
-        "temperature": 37.2
-    },
-    {
-        "activity": 78,
-        "age": 129,
-        "bpm": 103,
-        "id": 26,
-        "risk": "NORMAL",
-        "social_distance": 1.03,
-        "temperature": 38.9
-    },
-    {
-        "activity": 94,
-        "age": 172,
-        "bpm": 61,
-        "id": 27,
-        "risk": "ALTO",
-        "social_distance": 1.28,
-        "temperature": 37.3
-    },
-    {
-        "activity": 74,
-        "age": 32,
-        "bpm": 120,
-        "id": 28,
-        "risk": "BAIXO",
-        "social_distance": 0.79,
-        "temperature": 38.3
-    },
-    {
-        "activity": 67,
-        "age": 55,
-        "bpm": 127,
-        "id": 29,
-        "risk": "BAIXO",
-        "social_distance": 1.08,
-        "temperature": 38.9
-    },
-    {
-        "activity": 83,
-        "age": 123,
-        "bpm": 146,
-        "id": 30,
-        "risk": "ALTO",
-        "social_distance": 0.91,
-        "temperature": 40.4
-    },
-    {
-        "activity": 65,
-        "age": 143,
-        "bpm": 146,
-        "id": 31,
-        "risk": "MEDIO",
-        "social_distance": 0.83,
-        "temperature": 38.8
-    },
-    {
-        "activity": 95,
-        "age": 156,
-        "bpm": 83,
-        "id": 32,
-        "risk": "BAIXO",
-        "social_distance": 0.78,
-        "temperature": 38.0
-    },
-    {
-        "activity": 63,
-        "age": 130,
-        "bpm": 113,
-        "id": 33,
-        "risk": "MEDIO",
-        "social_distance": 0.84,
-        "temperature": 39.4
-    },
-    {
-        "activity": 84,
-        "age": 129,
-        "bpm": 146,
-        "id": 34,
-        "risk": "ALTO",
-        "social_distance": 1.08,
-        "temperature": 37.4
-    },
-    {
-        "activity": 94,
-        "age": 81,
-        "bpm": 83,
-        "id": 35,
-        "risk": "BAIXO",
-        "social_distance": 0.75,
-        "temperature": 38.5
+        "social_distance": 2.41,
+        "temperature": 38.90000000000001
     },
     {
         "activity": 64,
-        "age": 82,
-        "bpm": 127,
-        "id": 36,
-        "risk": "ALTO",
-        "social_distance": 1.34,
-        "temperature": 39.9
-    },
-    {
-        "activity": 100,
-        "age": 163,
-        "bpm": 107,
-        "id": 37,
-        "risk": "BAIXO",
-        "social_distance": 1.41,
-        "temperature": 38.6
-    },
-    {
-        "activity": 77,
-        "age": 90,
-        "bpm": 93,
-        "id": 38,
-        "risk": "NORMAL",
-        "social_distance": 1.48,
-        "temperature": 38.4
-    },
-    {
-        "activity": 78,
-        "age": 175,
-        "bpm": 150,
-        "id": 39,
-        "risk": "MEDIO",
-        "social_distance": 0.92,
-        "temperature": 40.2
-    },
-    {
-        "activity": 60,
-        "age": 118,
-        "bpm": 73,
-        "id": 40,
-        "risk": "BAIXO",
-        "social_distance": 0.95,
-        "temperature": 39.2
-    },
-    {
-        "activity": 90,
-        "age": 190,
-        "bpm": 120,
-        "id": 41,
-        "risk": "BAIXO",
-        "social_distance": 1.05,
-        "temperature": 38.4
-    },
-    {
-        "activity": 100,
-        "age": 167,
-        "bpm": 121,
-        "id": 42,
-        "risk": "ALTO",
-        "social_distance": 1.46,
-        "temperature": 37.7
-    },
-    {
-        "activity": 73,
-        "age": 186,
+        "age": 120,
         "bpm": 111,
-        "id": 43,
-        "risk": "BAIXO",
-        "social_distance": 1.69,
-        "temperature": 38.0
-    },
-    {
-        "activity": 89,
-        "age": 25,
-        "bpm": 148,
-        "id": 44,
-        "risk": "BAIXO",
-        "social_distance": 1.04,
-        "temperature": 39.9
-    },
-    {
-        "activity": 83,
-        "age": 22,
-        "bpm": 121,
-        "id": 45,
-        "risk": "BAIXO",
-        "social_distance": 0.79,
-        "temperature": 40.2
-    },
-    {
-        "activity": 76,
-        "age": 128,
-        "bpm": 81,
-        "id": 46,
-        "risk": "NORMAL",
-        "social_distance": 1.08,
-        "temperature": 40.0
-    },
-    {
-        "activity": 69,
-        "age": 16,
-        "bpm": 84,
-        "id": 47,
-        "risk": "NORMAL",
-        "social_distance": 0.73,
-        "temperature": 39.2
-    },
-    {
-        "activity": 92,
-        "age": 153,
-        "bpm": 97,
-        "id": 48,
-        "risk": "NORMAL",
-        "social_distance": 0.92,
-        "temperature": 38.7
-    },
-    {
-        "activity": 82,
-        "age": 137,
-        "bpm": 146,
-        "id": 49,
-        "risk": "BAIXO",
-        "social_distance": 1.12,
-        "temperature": 39.1
-    },
-    {
-        "activity": 87,
-        "age": 90,
-        "bpm": 70,
-        "id": 50,
-        "risk": "BAIXO",
-        "social_distance": 0.78,
-        "temperature": 39.8
-    },
-    {
-        "activity": 91,
-        "age": 27,
-        "bpm": 121,
-        "id": 51,
-        "risk": "BAIXO",
-        "social_distance": 1.43,
-        "temperature": 40.3
-    },
-    {
-        "activity": 61,
-        "age": 116,
-        "bpm": 96,
-        "id": 52,
-        "risk": "MEDIO",
-        "social_distance": 1.2,
-        "temperature": 39.9
-    },
-    {
-        "activity": 73,
-        "age": 60,
-        "bpm": 89,
-        "id": 53,
-        "risk": "NORMAL",
-        "social_distance": 1.18,
-        "temperature": 39.4
-    },
-    {
-        "activity": 98,
-        "age": 163,
-        "bpm": 79,
-        "id": 54,
-        "risk": "NORMAL",
-        "social_distance": 1.19,
-        "temperature": 39.1
-    },
-    {
-        "activity": 100,
-        "age": 24,
-        "bpm": 103,
-        "id": 55,
-        "risk": "BAIXO",
-        "social_distance": 1.87,
-        "temperature": 38.9
-    },
-    {
-        "activity": 100,
-        "age": 69,
-        "bpm": 119,
-        "id": 56,
-        "risk": "MEDIO",
-        "social_distance": 1.38,
-        "temperature": 40.3
-    },
-    {
-        "activity": 77,
-        "age": 71,
-        "bpm": 126,
-        "id": 57,
-        "risk": "BAIXO",
-        "social_distance": 1.19,
-        "temperature": 39.8
-    },
-    {
-        "activity": 76,
-        "age": 98,
-        "bpm": 55,
-        "id": 58,
-        "risk": "MEDIO",
+        "id": 8,
+        "risk": "ALTO",
         "social_distance": 2.07,
-        "temperature": 40.1
+        "temperature": 39.59999999999999
     },
     {
-        "activity": 72,
-        "age": 18,
-        "bpm": 76,
-        "id": 59,
-        "risk": "NORMAL",
-        "social_distance": 0.96,
-        "temperature": 39.4
-    },
-    {
-        "activity": 75,
-        "age": 20,
-        "bpm": 92,
-        "id": 60,
-        "risk": "NORMAL",
-        "social_distance": 1.22,
-        "temperature": 38.9
-    },
-    {
-        "activity": 100,
-        "age": 134,
-        "bpm": 147,
-        "id": 61,
-        "risk": "ALTO",
-        "social_distance": 1.22,
-        "temperature": 37.4
-    },
-    {
-        "activity": 90,
-        "age": 81,
-        "bpm": 114,
-        "id": 62,
-        "risk": "BAIXO",
-        "social_distance": 1.11,
-        "temperature": 38.2
-    },
-    {
-        "activity": 80,
-        "age": 17,
-        "bpm": 123,
-        "id": 63,
-        "risk": "BAIXO",
-        "social_distance": 1.27,
-        "temperature": 38.4
-    },
-    {
-        "activity": 76,
-        "age": 91,
-        "bpm": 65,
-        "id": 64,
-        "risk": "BAIXO",
-        "social_distance": 1.26,
-        "temperature": 39.7
-    },
-    {
-        "activity": 68,
+        "activity": 56,
         "age": 129,
-        "bpm": 101,
-        "id": 65,
-        "risk": "NORMAL",
-        "social_distance": 1.16,
-        "temperature": 38.4
-    },
-    {
-        "activity": 88,
-        "age": 154,
-        "bpm": 112,
-        "id": 66,
-        "risk": "BAIXO",
-        "social_distance": 1.01,
-        "temperature": 39.7
-    },
-    {
-        "activity": 78,
-        "age": 144,
-        "bpm": 72,
-        "id": 67,
-        "risk": "NORMAL",
-        "social_distance": 1.15,
-        "temperature": 39.8
-    },
-    {
-        "activity": 67,
-        "age": 27,
-        "bpm": 122,
-        "id": 68,
-        "risk": "BAIXO",
-        "social_distance": 1.23,
-        "temperature": 39.0
-    },
-    {
-        "activity": 78,
-        "age": 197,
-        "bpm": 133,
-        "id": 69,
+        "bpm": 142,
+        "id": 9,
         "risk": "ALTO",
-        "social_distance": 0.66,
-        "temperature": 40.4
-    },
-    {
-        "activity": 72,
-        "age": 195,
-        "bpm": 70,
-        "id": 70,
-        "risk": "NORMAL",
-        "social_distance": 1.48,
-        "temperature": 38.6
-    },
-    {
-        "activity": 65,
-        "age": 172,
-        "bpm": 135,
-        "id": 71,
-        "risk": "MEDIO",
-        "social_distance": 1.09,
-        "temperature": 37.6
-    },
-    {
-        "activity": 88,
-        "age": 48,
-        "bpm": 103,
-        "id": 72,
-        "risk": "BAIXO",
-        "social_distance": 1.15,
-        "temperature": 37.6
+        "social_distance": 2.14,
+        "temperature": 37.400000000000006
     },
     {
         "activity": 82,
-        "age": 121,
-        "bpm": 106,
-        "id": 73,
-        "risk": "BAIXO",
-        "social_distance": 1.3,
-        "temperature": 39.9
-    },
-    {
-        "activity": 83,
-        "age": 25,
-        "bpm": 67,
-        "id": 74,
-        "risk": "NORMAL",
-        "social_distance": 0.57,
-        "temperature": 39.3
-    },
-    {
-        "activity": 100,
-        "age": 112,
-        "bpm": 109,
-        "id": 75,
-        "risk": "NORMAL",
-        "social_distance": 0.86,
-        "temperature": 39.6
-    },
-    {
-        "activity": 91,
-        "age": 27,
-        "bpm": 130,
-        "id": 76,
-        "risk": "BAIXO",
-        "social_distance": 2.09,
-        "temperature": 39.5
+        "age": 128,
+        "bpm": 88,
+        "id": 10,
+        "risk": "MEDIO",
+        "social_distance": 2.84,
+        "temperature": 37.2
     },
     {
         "activity": 66,
-        "age": 51,
-        "bpm": 96,
-        "id": 77,
+        "age": 139,
+        "bpm": 98,
+        "id": 11,
+        "risk": "MEDIO",
+        "social_distance": 2.82,
+        "temperature": 39.60000000000001
+    },
+    {
+        "activity": 100,
+        "age": 148,
+        "bpm": 122,
+        "id": 12,
+        "risk": "MEDIO",
+        "social_distance": 2.26,
+        "temperature": 38.5
+    },
+    {
+        "activity": 88,
+        "age": 45,
+        "bpm": 55,
+        "id": 13,
+        "risk": "BAIXO",
+        "social_distance": 1.93,
+        "temperature": 38.59999999999999
+    },
+    {
+        "activity": 32,
+        "age": 199,
+        "bpm": 57,
+        "id": 14,
+        "risk": "ALTO",
+        "social_distance": 3.08,
+        "temperature": 39.79999999999999
+    },
+    {
+        "activity": 54,
+        "age": 83,
+        "bpm": 113,
+        "id": 15,
+        "risk": "MEDIO",
+        "social_distance": 4.11,
+        "temperature": 39.10000000000003
+    },
+    {
+        "activity": 85,
+        "age": 49,
+        "bpm": 55,
+        "id": 16,
         "risk": "NORMAL",
-        "social_distance": 1.02,
-        "temperature": 39.7
+        "social_distance": 2.0,
+        "temperature": 39.29999999999998
+    },
+    {
+        "activity": 16,
+        "age": 139,
+        "bpm": 123,
+        "id": 17,
+        "risk": "ALTO",
+        "social_distance": 2.29,
+        "temperature": 39.30000000000001
+    },
+    {
+        "activity": 86,
+        "age": 29,
+        "bpm": 91,
+        "id": 18,
+        "risk": "MEDIO",
+        "social_distance": 2.27,
+        "temperature": 37.2
+    },
+    {
+        "activity": 96,
+        "age": 95,
+        "bpm": 141,
+        "id": 19,
+        "risk": "ALTO",
+        "social_distance": 1.94,
+        "temperature": 37.300000000000004
+    },
+    {
+        "activity": 73,
+        "age": 91,
+        "bpm": 66,
+        "id": 20,
+        "risk": "MEDIO",
+        "social_distance": 2.59,
+        "temperature": 40.099999999999994
+    },
+    {
+        "activity": 70,
+        "age": 151,
+        "bpm": 142,
+        "id": 21,
+        "risk": "MEDIO",
+        "social_distance": 1.96,
+        "temperature": 38.20000000000002
+    },
+    {
+        "activity": 90,
+        "age": 46,
+        "bpm": 133,
+        "id": 22,
+        "risk": "NORMAL",
+        "social_distance": 2.25,
+        "temperature": 39.49999999999999
+    },
+    {
+        "activity": 69,
+        "age": 57,
+        "bpm": 137,
+        "id": 23,
+        "risk": "ALTO",
+        "social_distance": 2.02,
+        "temperature": 40.4
+    },
+    {
+        "activity": 100,
+        "age": 165,
+        "bpm": 59,
+        "id": 24,
+        "risk": "BAIXO",
+        "social_distance": 2.0,
+        "temperature": 39.20000000000001
+    },
+    {
+        "activity": 56,
+        "age": 168,
+        "bpm": 88,
+        "id": 25,
+        "risk": "NORMAL",
+        "social_distance": 2.59,
+        "temperature": 38.29999999999997
+    },
+    {
+        "activity": 85,
+        "age": 66,
+        "bpm": 124,
+        "id": 26,
+        "risk": "MEDIO",
+        "social_distance": 1.99,
+        "temperature": 37.50000000000001
+    },
+    {
+        "activity": 48,
+        "age": 98,
+        "bpm": 66,
+        "id": 27,
+        "risk": "BAIXO",
+        "social_distance": 2.59,
+        "temperature": 37.70000000000001
+    },
+    {
+        "activity": 80,
+        "age": 169,
+        "bpm": 121,
+        "id": 28,
+        "risk": "NORMAL",
+        "social_distance": 2.99,
+        "temperature": 38.79999999999999
+    },
+    {
+        "activity": 88,
+        "age": 199,
+        "bpm": 62,
+        "id": 29,
+        "risk": "ALTO",
+        "social_distance": 2.82,
+        "temperature": 37.50000000000001
     },
     {
         "activity": 60,
-        "age": 156,
-        "bpm": 77,
-        "id": 78,
+        "age": 158,
+        "bpm": 62,
+        "id": 30,
         "risk": "BAIXO",
-        "social_distance": 1.43,
+        "social_distance": 2.12,
+        "temperature": 39.200000000000024
+    },
+    {
+        "activity": 83,
+        "age": 106,
+        "bpm": 112,
+        "id": 31,
+        "risk": "BAIXO",
+        "social_distance": 2.04,
+        "temperature": 38.30000000000002
+    },
+    {
+        "activity": 76,
+        "age": 176,
+        "bpm": 108,
+        "id": 32,
+        "risk": "BAIXO",
+        "social_distance": 1.76,
+        "temperature": 38.00000000000001
+    },
+    {
+        "activity": 84,
+        "age": 84,
+        "bpm": 94,
+        "id": 33,
+        "risk": "NORMAL",
+        "social_distance": 2.33,
+        "temperature": 38.59999999999997
+    },
+    {
+        "activity": 76,
+        "age": 104,
+        "bpm": 122,
+        "id": 34,
+        "risk": "ALTO",
+        "social_distance": 1.94,
+        "temperature": 37.50000000000001
+    },
+    {
+        "activity": 54,
+        "age": 32,
+        "bpm": 68,
+        "id": 35,
+        "risk": "MEDIO",
+        "social_distance": 2.78,
+        "temperature": 37.899999999999984
+    },
+    {
+        "activity": 64,
+        "age": 192,
+        "bpm": 148,
+        "id": 36,
+        "risk": "MEDIO",
+        "social_distance": 2.28,
+        "temperature": 37.89999999999999
+    },
+    {
+        "activity": 89,
+        "age": 84,
+        "bpm": 118,
+        "id": 37,
+        "risk": "ALTO",
+        "social_distance": 2.63,
+        "temperature": 38.199999999999996
+    },
+    {
+        "activity": 50,
+        "age": 128,
+        "bpm": 90,
+        "id": 38,
+        "risk": "BAIXO",
+        "social_distance": 3.22,
+        "temperature": 39.00000000000001
+    },
+    {
+        "activity": 64,
+        "age": 163,
+        "bpm": 103,
+        "id": 39,
+        "risk": "MEDIO",
+        "social_distance": 2.88,
+        "temperature": 39.30000000000002
+    },
+    {
+        "activity": 75,
+        "age": 163,
+        "bpm": 150,
+        "id": 40,
+        "risk": "ALTO",
+        "social_distance": 2.26,
+        "temperature": 37.2
+    },
+    {
+        "activity": 54,
+        "age": 190,
+        "bpm": 150,
+        "id": 41,
+        "risk": "ALTO",
+        "social_distance": 2.9,
+        "temperature": 38.600000000000016
+    },
+    {
+        "activity": 67,
+        "age": 74,
+        "bpm": 132,
+        "id": 42,
+        "risk": "ALTO",
+        "social_distance": 1.87,
+        "temperature": 40.099999999999994
+    },
+    {
+        "activity": 61,
+        "age": 87,
+        "bpm": 117,
+        "id": 43,
+        "risk": "ALTO",
+        "social_distance": 2.42,
+        "temperature": 39.79999999999999
+    },
+    {
+        "activity": 71,
+        "age": 71,
+        "bpm": 61,
+        "id": 44,
+        "risk": "BAIXO",
+        "social_distance": 2.11,
+        "temperature": 39.60000000000004
+    },
+    {
+        "activity": 57,
+        "age": 54,
+        "bpm": 140,
+        "id": 45,
+        "risk": "BAIXO",
+        "social_distance": 2.41,
+        "temperature": 38.500000000000014
+    },
+    {
+        "activity": 72,
+        "age": 131,
+        "bpm": 95,
+        "id": 46,
+        "risk": "NORMAL",
+        "social_distance": 2.37,
+        "temperature": 38.60000000000002
+    },
+    {
+        "activity": 84,
+        "age": 50,
+        "bpm": 111,
+        "id": 47,
+        "risk": "BAIXO",
+        "social_distance": 1.86,
+        "temperature": 37.90000000000001
+    },
+    {
+        "activity": 47,
+        "age": 85,
+        "bpm": 88,
+        "id": 48,
+        "risk": "ALTO",
+        "social_distance": 2.33,
         "temperature": 39.7
     },
     {
-        "activity": 99,
-        "age": 77,
-        "bpm": 58,
-        "id": 79,
+        "activity": 89,
+        "age": 151,
+        "bpm": 112,
+        "id": 49,
         "risk": "MEDIO",
-        "social_distance": 1.49,
-        "temperature": 38.7
+        "social_distance": 1.94,
+        "temperature": 40.3
     },
     {
-        "activity": 99,
-        "age": 72,
-        "bpm": 70,
-        "id": 80,
-        "risk": "NORMAL",
-        "social_distance": 1.28,
-        "temperature": 39.3
+        "activity": 78,
+        "age": 92,
+        "bpm": 87,
+        "id": 50,
+        "risk": "BAIXO",
+        "social_distance": 1.82,
+        "temperature": 40.300000000000026
     }
 ]

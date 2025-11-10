@@ -5,6 +5,7 @@
 #include <string>
 #include <random>
 #include <utility>
+#include <iostream>
 
 enum Risk {
 	NORMAL,
@@ -33,12 +34,17 @@ public:
 	std::pair<double, double> m_location	= { 0.0, 0.0 };	// Mapping (latitude, longitude)
 	double m_socialDistance					= 0;			// Average distance from other animals (meters)
 	uint16_t m_heartRate					= 0;			// BPM (beats per minute)
+	double m_size							= 0;			// Length (meters)
 
 	int16_t m_score							= 0;			// Anomaly score
 	Risk m_risk								= NORMAL;		// Risk level
 
+	uint16_t m_lastIteration				= 0; 			// Number of iterations the animal has skipped
+
 	void resetIdCounter() { s_nextId = 1; };
 
 	void generatePosition(double minX, double maxX, double minY, double maxY); // Generates a random position without collision
-	void generateUniquePosition(double minX, double maxX, double minY, double maxY, const std::vector<Animal>& animals, const double minDistance);
+	void generateUniquePosition(double minX, double maxX, double minY, double maxY, const std::vector<Animal>& animals);
+
+	void update();
 };

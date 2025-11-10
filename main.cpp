@@ -9,10 +9,13 @@ using json = nlohmann::json;
 #include <string>
 #include <iomanip>
 #include <iostream>
+#include <chrono>
+#include <thread>
 
 // Global constants
 const char* RISK_STRINGS[] = { "NORMAL", "BAIXO", "MEDIO", "ALTO", "UNKNOWN" };
-constexpr double MIN_DIST = 0.3;
+constexpr double PEN_SIZE_X = 15.0;
+constexpr double PEN_SIZE_Y = 15.0;
 
 // Display animal details to console
 void showDetails(const Animal& animal) {
@@ -67,23 +70,15 @@ void exportJson(const std::vector<Animal>& animals, const std::string filename) 
 int main() {
 	// Prepare cmd for UNICODE output
     system("chcp 1250");
-    system("cls");
-
-    // Read & output ascii art
-	std::vector<char> art = readFile("D:\\SIMDA\\ascii.txt");
-    for (const char& c : art) {
-		std::cout << c;
-    }
-	std::cout << "\n\n";
 
     AI ai;
 
-	// Creates 100 healthy swines for training
+	// Creates healthy swines for training
     std::vector<Animal> swinesHealthy;
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 50; i++) {
         Animal swine(NORMAL);
-        swine.generatePosition(0.0, 10.0, 0.0, 10.0);
+        swine.generatePosition(0.0, PEN_SIZE_X, 0.0, PEN_SIZE_Y);
         swinesHealthy.push_back(swine);
     }
 
@@ -95,28 +90,55 @@ int main() {
     tempSwine->resetIdCounter();
     delete tempSwine;
 
-	// Creates 80 random swines for analysis
+	// Creates random swines for analysis
     std::vector<Animal> swinesRandom;
 	
-    for (int i = 0; i < 80; i++) {
+    for (int i = 0; i < 50; i++) {
         Animal swine(RANDOM);
-        swine.generateUniquePosition(0.0, 10.0, 0.0, 10.0, swinesRandom, MIN_DIST);
+        swine.generateUniquePosition(0.0, PEN_SIZE_X, 0.0, PEN_SIZE_Y, swinesRandom);
         swinesRandom.push_back(swine);
     }
 
-    ai.setSocialDistances(swinesRandom);
-    
-	// Analyze swines and gives them a score & risk level
-	for (Animal& swine : swinesRandom) {
-        swine.m_score = ai.detectScore(swine);
-        swine.m_risk = ai.detectRisk(swine);
-	}
+	const auto delayDuration = std::chrono::milliseconds(5000);
 
-    for (Animal& swine : swinesRandom) {
-        showDetails(swine);
+    while (true) {
+        system("cls");
+
+        // Read & output ascii art
+	    std::vector<char> art = readFile("D:\\SIMDA\\ascii.txt");
+        for (const char& c : art) {
+		    std::cout << c;
+        }
+	    std::cout << "\n\n";
+
+        ai.setSocialDistances(swinesRandom);
+
+        // Analyze swines and gives them a score & risk level
+        for (Animal& swine : swinesRandom) {
+            if (swine.m_risk == HIGH && swine.m_lastIteration < 5) {
+                swine.m_lastIteration++;
+                continue;
+            }
+
+            swine.m_score = ai.detectScore(swine);
+            swine.m_risk = ai.detectRisk(swine);
+            swine.m_lastIteration = 0;
+        }
+
+        for (Animal& swine : swinesRandom) {
+            showDetails(swine);
+        }
+
+        exportJson(swinesRandom, "SimdaAnalysis.json");
+
+		// Update swines data and reposition them
+        for (Animal& swine : swinesRandom) {
+            swine.update();
+            swine.generateUniquePosition(0.0, PEN_SIZE_X, 0.0, PEN_SIZE_Y, swinesRandom);
+		}
+
+		std::this_thread::sleep_for(delayDuration);
     }
-
-    exportJson(swinesRandom, "SimdaAnalysis.json");
 
 	return 0;
 }
